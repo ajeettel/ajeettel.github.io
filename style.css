@@ -1906,7 +1906,9 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .b .om{
-  display: none;
+  height: 50px;  /* Adjust based on your design */
+  width: auto;
+  max-height: 100%;  /* Ensures the logo fits inside the navbar */
 }
 
 .b .pm{
