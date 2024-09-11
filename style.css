@@ -2585,3 +2585,20 @@ h1,  h2,  h3,  h4,  h5,  h6{
   }
 }
 
+.textlogo {
+  margin-top: 1.5rem !important;
+}
+
+
+.heroimage {
+  right: 50% !important;
+}
+
+.shape3 {
+  left: 35% !important;
+}
+
+.shape2 {
+  right:145% !important;
+  bottom: 40% !important
+}
