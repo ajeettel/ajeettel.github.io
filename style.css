@@ -2591,7 +2591,9 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 
 .heroimage {
-  right: 50% !important;
+  right:20rem;
+  height:35rem;
+  top:10rem;
 }
 
 .shape3 {
