@@ -97,7 +97,7 @@
             </p>
 
             <div class="tc tf yo zf mb">
-              <a href="#" class="ek jk lk gh gi hi rg ml il vc _d _l">Get a Quote</a>
+              <a href="#contactstart" class="ek jk lk gh gi hi rg ml il vc _d _l">Get a Quote</a>
 
               <span class="tc sf">
                 <a href="#" class="inline-block ek xj kk wm"> Call us (416)570-2806 </a>
@@ -649,7 +649,7 @@
         </div>
         <!-- Section Title End -->
 
-        <div class="i va bb ye ki xn wq jb mo">
+        <div id="contactstart" class="i va bb ye ki xn wq jb mo">
           <div class="tc uf sn tf rn un zf xl:gap-10">
             <div class="animate_top w-full mn/5 to/3 vk sg hh sm yh rq i pg">
               <!-- Bg Shapes -->
@@ -710,7 +710,7 @@
             </div>
 
             <div class="animate_top w-full nn/5 vo/3 vk sg hh sm yh tq">
-              <form action="https://formbold.com/s/unique_form_id" method="POST">
+              <form id="supportForm">
                 <div class="tc sf yo ap zf ep qb">
                   <div class="vd to/2">
                     <label class="rc ac" for="fullname">Full name</label>
@@ -962,44 +962,52 @@
 
   <!-- ====== Back To Top End ===== -->
 
-  <script>
-    //  Pricing Table
-    const setup = () => {
-      return {
-        isNavOpen: false,
-
-        billPlan: 'monthly',
-
-        plans: [
-          {
-            name: 'Starter',
-            price: {
-              monthly: 29,
-              annually: 29 * 12 - 199,
-            },
-            features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-          },
-          {
-            name: 'Growth Plan',
-            price: {
-              monthly: 59,
-              annually: 59 * 12 - 100,
-            },
-            features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-          },
-          {
-            name: 'Business',
-            price: {
-              monthly: 139,
-              annually: 139 * 12 - 100,
-            },
-            features: ['400 GB Storaget', 'Unlimited Photos & Videos', 'Exclusive Support'],
-          },
-        ],
-      };
-    };
-  </script>
   <script defer src="bundle.js"></script>
+  <script>
+    document.getElementById("supportForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+    
+      const fullName = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+    
+      const issueTitle = `${fullName} - ${subject}`;
+      const issueBody = `\n
+        Name: ${fullName} \n
+        Email: ${email} \n
+        Phone: ${phone} \n
+        Subject: ${subject} \n
+        Message: ${message}`;
+        
+
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      const raw = JSON.stringify({
+        "name": issueTitle,
+        "desc": issueBody
+      });
+
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+      };
+
+      const response = await fetch("https://api.trello.com/1/cards?idList=66e0b33dcf0a31132fd97008&key=e91fb836654c679daea767edaf5802a0&token=ATTA46a32f752f4d8a0c24c23cd406973c7b1487980b914a180a705e863578a7d41bF871CE31", requestOptions)    
+
+      if (response.ok) {
+        alert("Form submitted successfully!");
+        document.getElementById("supportForm").reset();
+      } else {
+        alert("There was an error submitting the form.");
+      }
+    });
+
+    </script>
 </body>
 
 </html>
