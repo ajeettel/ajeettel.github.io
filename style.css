@@ -2591,11 +2591,11 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 
 .heroimage {
-  right:25rem;
+  right:28rem;
   /* width: auto;
   height: auto; */
   top:18rem;
-  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2); /* Adjust blur radius and color */
+  /* box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2); Adjust blur radius and color */
 
   width: auto; /* Keep original width */
   height: auto; /* Keep original height */
