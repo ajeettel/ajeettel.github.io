@@ -65,7 +65,7 @@
       <div class="xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
         <!-- <img src="images/shape-01.svg" alt="shape" class="xc 2xl:ud-block h t -ud-left-[10%] ua" /> -->
         <!-- <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va shape3" /> -->
-        <img src="images/clipart586440.png" alt="Woman" class="h q r ua heroimage" />
+        <img src="images/giphy.webp" alt="Woman" class="h q r ua heroimage" />
       </div>
 
       <!-- Hero Content -->
@@ -556,49 +556,44 @@
   <script defer src="bundle.js"></script>
   <script>
     document.getElementById("supportForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
+    event.preventDefault();
+
+    const headers = new Headers()
+    headers.append("Content-Type", "application/json")
+
+    const fullName = document.getElementById("fullname").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
     
-      const fullName = document.getElementById("fullname").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
-      const subject = document.getElementById("subject").value;
-      const message = document.getElementById("message").value;
-    
-      const issueTitle = `${fullName} - ${subject}`;
-      const issueBody = `\n
-        Name: ${fullName} \n
-        Email: ${email} \n
-        Phone: ${phone} \n
-        Subject: ${subject} \n
-        Message: ${message}`;
-        
+    const issueTitle = `${fullName} - ${subject}`;
+      
+    const body = {
+      "name": fullName,
+      "email": email,
+      "phone": phone,
+      "subject": subject,
+      "message" : message    }
 
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
+    const options = {
+      method: "POST",
+      headers,
+      mode: "cors",
+      body: JSON.stringify(body),
+    }
+  
+    const response = await fetch("https://eoh5ogfv92udaqc.m.pipedream.net", options)    
 
-      const raw = JSON.stringify({
-        "name": issueTitle,
-        "desc": issueBody
-      });
+    if (response.ok) {
+      alert("Form submitted successfully!");
+      document.getElementById("supportForm").reset();
+    } else {
+      alert("There was an error submitting the form.");
+    }
+  });
 
-      const requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow"
-      };
-
-      const response = await fetch("https://api.trello.com/1/cards?idList=&key=&token=", requestOptions)    
-
-      if (response.ok) {
-        alert("Form submitted successfully!");
-        document.getElementById("supportForm").reset();
-      } else {
-        alert("There was an error submitting the form.");
-      }
-    });
-
-    </script>
+</script>
 </body>
 
 </html>

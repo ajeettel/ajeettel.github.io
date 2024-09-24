@@ -2591,9 +2591,19 @@ h1,  h2,  h3,  h4,  h5,  h6{
 
 
 .heroimage {
-  right:20rem;
-  height:35rem;
-  top:10rem;
+  right:25rem;
+  /* width: auto;
+  height: auto; */
+  top:18rem;
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2); /* Adjust blur radius and color */
+
+  width: auto; /* Keep original width */
+  height: auto; /* Keep original height */
+  /* max-width: 200px; Optional: set a maximum width if needed */
+  /* max-height: 200px; Optional: set a maximum height if needed */
+  border-radius:  /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area */
+  
 }
 
 .shape3 {
