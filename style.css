@@ -594,6 +594,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
   .project-sizer{
     width: 50%;
   }
+
 }
 @media (min-width: 1024px){
 
@@ -1642,7 +1643,7 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 .mk{
   --tw-text-opacity: 1;
-  color: rgb(78 107 255 / var(--tw-text-opacity));
+  color: rgb(65 15 248);
 }
 .nk{
   --tw-text-opacity: 1 !important;
@@ -2583,27 +2584,55 @@ h1,  h2,  h3,  h4,  h5,  h6{
     font-size: 40px;
     line-height: 42px;
   }
+
 }
 
+
+/* Default Styles */
+.heroimage {
+  position: relative;
+  top: auto;
+  right: auto;
+  height: auto;
+}
+
+/* Tablet - For screens with a min-width of 768px */
+@media (min-width: 768px) {
+  .heroimage {
+    right: -5rem !important;
+    height: 300px;
+    top: 15rem !important;
+  }
+  .project-sizer {
+    width: 50%;
+  }
+}
+
+/* Desktop - For screens with a min-width of 1024px */
+@media (min-width: 1024px) {
+  .heroimage {
+    right: -5rem !important;
+    top: 10rem !important;
+    height: auto !important;
+  }
+  .project-sizer {
+    width: 33.333333%;
+  }
+}
+
+/* Additional Large Screen Breakpoints */
+@media (min-width: 1536px) {
+  .heroimage {
+    right: 5rem !important;
+    top: 18rem !important;
+    height: auto !important;
+    object-fit: cover; /* Ensures the image fits within its container */
+  }
+}
+
+/* Additional Utility Classes */
 .textlogo {
   margin-top: 1.5rem !important;
-}
-
-
-.heroimage {
-  right:28rem;
-  /* width: auto;
-  height: auto; */
-  top:18rem;
-  /* box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.2); Adjust blur radius and color */
-
-  width: auto; /* Keep original width */
-  height: auto; /* Keep original height */
-  /* max-width: 200px; Optional: set a maximum width if needed */
-  /* max-height: 200px; Optional: set a maximum height if needed */
-  border-radius:  /* Makes the image circular */
-  object-fit: cover; /* Ensures the image covers the area */
-  
 }
 
 .shape3 {
@@ -2611,6 +2640,12 @@ h1,  h2,  h3,  h4,  h5,  h6{
 }
 
 .shape2 {
-  right:145% !important;
-  bottom: 40% !important
+  right: 145% !important;
+  bottom: 40% !important;
+}
+
+body > header > div > div.vd.wo\/4.sd.qo.f.ho.oo.wf.yf {
+  justify-content: end;
+  text-transform: uppercase;
+  font-size: larger;
 }
